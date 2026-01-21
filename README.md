@@ -1,26 +1,45 @@
-# Projeto SQL – Análise Financeira
+# Financial Data Analysis with SQL
 
-Consulta SQL desenvolvida para análise financeira de documentos,
-pagamentos e rateios em um cenário corporativo.
+## 📌 Contexto
+Em ambientes corporativos, dados financeiros frequentemente apresentam inconsistências que impactam relatórios, pagamentos e tomadas de decisão.
 
-## Objetivo
-Permitir análises detalhadas de:
-- Documentos financeiros
-- Tipos de pagamento
-- Centros de custo
-- Contas gerenciais
-- Projetos associados
-- Valores consolidados
+Este projeto simula um cenário real de **análise e validação de dados financeiros**, semelhante ao encontrado em sistemas ERP.
 
-## Destaques técnicos
+---
+
+## 🎯 Objetivo
+Desenvolver consultas SQL para:
+- Analisar contas a pagar e receber
+- Classificar tipos de pagamento
+- Identificar inconsistências nos dados
+- Apoiar decisões financeiras e operacionais
+
+---
+
+## 🧠 Abordagem Técnica
+Foram utilizadas consultas SQL com foco em:
 - JOINs entre múltiplas tabelas
-- CASE WHEN para regras de negócio
-- COALESCE para tratamento de CPF/CNPJ
-- Filtros dinâmicos por período
-- Conversão de valores monetários
+- Aplicação de regras de negócio via CASE
+- Validação de dados financeiros
+- Organização de resultados para leitura gerencial
 
-## Tecnologias
-- SQL (PostgreSQL / SQL ANSI)
+---
 
-## Arquivos
-- `query.sql` → Consulta SQL principal do projeto
+## 🛠️ Tecnologias Utilizadas
+- SQL
+- Banco de dados relacional
+- Conceitos de dados financeiros e ERP
+
+---
+
+## 📊 Exemplo de Consulta
+```sql
+SELECT
+  conta,
+  data_emissao,
+  data_vencimento,
+  tipo_pagamento,
+  valor
+FROM contas_financeiras
+WHERE data_vencimento < CURRENT_DATE
+  AND status = 'EM ABERTO';
